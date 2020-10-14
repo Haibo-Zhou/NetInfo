@@ -13,6 +13,10 @@
 		1359EB112536AC8A00AC4A91 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1359EB0F2536AC8A00AC4A91 /* Main.storyboard */; };
 		1359EB132536AC9000AC4A91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1359EB122536AC9000AC4A91 /* Assets.xcassets */; };
 		1359EB162536AC9000AC4A91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1359EB142536AC9000AC4A91 /* LaunchScreen.storyboard */; };
+		1359EB202536B24300AC4A91 /* Function.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1359EB1F2536B24300AC4A91 /* Function.swift */; };
+		1359EB242536B2C000AC4A91 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1359EB232536B2C000AC4A91 /* Data.swift */; };
+		1359EB292536C7AA00AC4A91 /* FuncTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1359EB272536C7A700AC4A91 /* FuncTableViewCell.swift */; };
+		1359EB2A2536C7AA00AC4A91 /* FuncTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1359EB282536C7A800AC4A91 /* FuncTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		1359EB122536AC9000AC4A91 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1359EB152536AC9000AC4A91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1359EB172536AC9000AC4A91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1359EB1F2536B24300AC4A91 /* Function.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Function.swift; sourceTree = "<group>"; };
+		1359EB232536B2C000AC4A91 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		1359EB272536C7A700AC4A91 /* FuncTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuncTableViewCell.swift; sourceTree = "<group>"; };
+		1359EB282536C7A800AC4A91 /* FuncTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FuncTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +64,8 @@
 		1359EB082536AC8A00AC4A91 /* NetInfo */ = {
 			isa = PBXGroup;
 			children = (
+				1359EB222536B29700AC4A91 /* Resource */,
+				1359EB1E2536B21900AC4A91 /* Models */,
 				1359EB092536AC8A00AC4A91 /* AppDelegate.swift */,
 				1359EB0B2536AC8A00AC4A91 /* SceneDelegate.swift */,
 				1359EB0D2536AC8A00AC4A91 /* ViewController.swift */,
@@ -63,8 +73,26 @@
 				1359EB122536AC9000AC4A91 /* Assets.xcassets */,
 				1359EB142536AC9000AC4A91 /* LaunchScreen.storyboard */,
 				1359EB172536AC9000AC4A91 /* Info.plist */,
+				1359EB272536C7A700AC4A91 /* FuncTableViewCell.swift */,
+				1359EB282536C7A800AC4A91 /* FuncTableViewCell.xib */,
 			);
 			path = NetInfo;
+			sourceTree = "<group>";
+		};
+		1359EB1E2536B21900AC4A91 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1359EB1F2536B24300AC4A91 /* Function.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1359EB222536B29700AC4A91 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				1359EB232536B2C000AC4A91 /* Data.swift */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,6 +153,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1359EB162536AC9000AC4A91 /* LaunchScreen.storyboard in Resources */,
+				1359EB2A2536C7AA00AC4A91 /* FuncTableViewCell.xib in Resources */,
 				1359EB132536AC9000AC4A91 /* Assets.xcassets in Resources */,
 				1359EB112536AC8A00AC4A91 /* Main.storyboard in Resources */,
 			);
@@ -138,8 +167,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				1359EB0E2536AC8A00AC4A91 /* ViewController.swift in Sources */,
+				1359EB292536C7AA00AC4A91 /* FuncTableViewCell.swift in Sources */,
+				1359EB242536B2C000AC4A91 /* Data.swift in Sources */,
 				1359EB0A2536AC8A00AC4A91 /* AppDelegate.swift in Sources */,
 				1359EB0C2536AC8A00AC4A91 /* SceneDelegate.swift in Sources */,
+				1359EB202536B24300AC4A91 /* Function.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
