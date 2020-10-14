@@ -9,18 +9,20 @@ import UIKit
 import Network
 
 class NetworkUtility {
-    var gatewayIPAddress: String?
-    static let shared = NetworkUtility()
+//    var gatewayIPAddress: String?
+//    static let shared = NetworkUtility()
     
-    func getGatewayInfo() -> String {
+    func getGatewayInfo(completionHandler: @escaping (String) -> ()) {
         let monitor = NWPathMonitor(requiredInterfaceType: .wifi)
         monitor.pathUpdateHandler = { path in
             if !path.gateways.isEmpty {
                 let endpoint = path.gateways[0]
                 switch endpoint {
                 case .hostPort(let host, _):
-                    self.gatewayIPAddress = host.debugDescription
-                    print("Gateway: \(self.gatewayIPAddress!)")
+                    let remoteHost = host.debugDescription
+                    print("Gateway: \(remoteHost)")
+                    // Use callback here to return the ip address to the caller
+                    completionHandler(remoteHost)
                 default:
                     break
                 }
@@ -29,7 +31,5 @@ class NetworkUtility {
             }
         }
         monitor.start(queue: DispatchQueue(label: "nwpathmonitor.queue"))
-
-        return gatewayIPAddress ?? "N/A"
     }
 }
