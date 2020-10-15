@@ -11,12 +11,11 @@ import SwiftSocket
 
 class NetworkUtility {
     
-    // MARK: Gateway Info
+    // MARK: - Gateway Info
     func getGatewayInfo(completionHandler: @escaping (String) -> ()) {
         let monitor = NWPathMonitor(requiredInterfaceType: .wifi)
         monitor.pathUpdateHandler = { path in
-            if !path.gateways.isEmpty {
-                let endpoint = path.gateways[0]
+            if let endpoint = path.gateways.first {
                 switch endpoint {
                 case .hostPort(let host, _):
                     let remoteHost = host.debugDescription
@@ -33,7 +32,7 @@ class NetworkUtility {
         monitor.start(queue: DispatchQueue(label: "nwpathmonitor.queue"))
     }
     
-    // MARK: Port Scaner
+    // MARK: - Port Scaner
     // Get number of threads for scan ports
     func getSegmentsQueues(min: Int, max: Int, maxPerSegment: Int) -> [[Int]] {
         

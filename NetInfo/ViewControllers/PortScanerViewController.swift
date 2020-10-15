@@ -11,6 +11,9 @@ class PortScanerViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var serverAddress: UITextField!
     @IBOutlet weak var startPort: UITextField!
     @IBOutlet weak var stopPort: UITextField!
+    @IBOutlet weak var serverImageView: UIImageView!
+    @IBOutlet weak var portRangeImageView: UIImageView!
+    @IBOutlet weak var scanerIndicator: UIActivityIndicatorView!
     
     @IBOutlet var table: UITableView!
     
@@ -23,6 +26,9 @@ class PortScanerViewController: UIViewController, UITableViewDelegate, UITableVi
         table.dataSource = self
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Start", style: .plain, target: self, action: #selector(startScan))
+        
+        serverImageView.image = UIImage(systemName: "externaldrive.badge.checkmark")
+        portRangeImageView.image = UIImage(systemName: "externaldrive.badge.plus")
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -30,12 +36,16 @@ class PortScanerViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     @objc func startScan() {
+        scanerIndicator.startAnimating()
+        
         if let address = serverAddress.text, !address.isEmpty {
             if let start = Int(startPort.text!) {
                 if let stop = Int(stopPort.text!) {
                     if start < stop {
                         openPorts = netUtility.scanPorts(address: address, start: start, stop: stop)
+                        print("Open Open: \(openPorts)")
                         if !openPorts.isEmpty {
+                            scanerIndicator.stopAnimating()
                             table.reloadData()
                         } else {
                             showErrorMessage(errorTitle: "Not at all", errorMessage: "No open ports were found")

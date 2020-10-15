@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		0C13B9837359C8B8B4D603BB /* Pods_NetInfo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59D3D5A0A651B54703652646 /* Pods_NetInfo.framework */; };
 		13185808253806630060F691 /* PortScanerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13185807253806630060F691 /* PortScanerViewController.swift */; };
-		1318583F253872430060F691 /* ExtensionFIle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1318583E253872420060F691 /* ExtensionFIle.swift */; };
+		1318583F253872430060F691 /* ExtensionFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1318583E253872420060F691 /* ExtensionFile.swift */; };
 		1359EB0A2536AC8A00AC4A91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1359EB092536AC8A00AC4A91 /* AppDelegate.swift */; };
 		1359EB0C2536AC8A00AC4A91 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1359EB0B2536AC8A00AC4A91 /* SceneDelegate.swift */; };
 		1359EB0E2536AC8A00AC4A91 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1359EB0D2536AC8A00AC4A91 /* ViewController.swift */; };
@@ -27,7 +27,7 @@
 /* Begin PBXFileReference section */
 		0890108ED88D5EEDF60A447B /* Pods-NetInfo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetInfo.debug.xcconfig"; path = "Target Support Files/Pods-NetInfo/Pods-NetInfo.debug.xcconfig"; sourceTree = "<group>"; };
 		13185807253806630060F691 /* PortScanerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortScanerViewController.swift; sourceTree = "<group>"; };
-		1318583E253872420060F691 /* ExtensionFIle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionFIle.swift; sourceTree = "<group>"; };
+		1318583E253872420060F691 /* ExtensionFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionFile.swift; sourceTree = "<group>"; };
 		1359EB062536AC8A00AC4A91 /* NetInfo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetInfo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1359EB092536AC8A00AC4A91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1359EB0B2536AC8A00AC4A91 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,9 +69,28 @@
 		1318583D253870640060F691 /* Extension-helper */ = {
 			isa = PBXGroup;
 			children = (
-				1318583E253872420060F691 /* ExtensionFIle.swift */,
+				1318583E253872420060F691 /* ExtensionFile.swift */,
 			);
 			path = "Extension-helper";
+			sourceTree = "<group>";
+		};
+		131858412538B2460060F691 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				1359EB312536E13D00AC4A91 /* GatewayViewController.swift */,
+				1359EB0D2536AC8A00AC4A91 /* ViewController.swift */,
+				13185807253806630060F691 /* PortScanerViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		131858442538B26C0060F691 /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				1359EB272536C7A700AC4A91 /* FuncTableViewCell.swift */,
+				1359EB282536C7A800AC4A91 /* FuncTableViewCell.xib */,
+			);
+			path = CustomCell;
 			sourceTree = "<group>";
 		};
 		1359EAFD2536AC8A00AC4A91 = {
@@ -95,21 +114,15 @@
 		1359EB082536AC8A00AC4A91 /* NetInfo */ = {
 			isa = PBXGroup;
 			children = (
+				131858412538B2460060F691 /* ViewControllers */,
+				131858442538B26C0060F691 /* CustomCell */,
 				1318583D253870640060F691 /* Extension-helper */,
 				1359EB2C2536DCE600AC4A91 /* Network */,
 				1359EB222536B29700AC4A91 /* Resource */,
 				1359EB1E2536B21900AC4A91 /* Models */,
 				1359EB092536AC8A00AC4A91 /* AppDelegate.swift */,
 				1359EB0B2536AC8A00AC4A91 /* SceneDelegate.swift */,
-				1359EB312536E13D00AC4A91 /* GatewayViewController.swift */,
-				1359EB0D2536AC8A00AC4A91 /* ViewController.swift */,
-				13185807253806630060F691 /* PortScanerViewController.swift */,
-				1359EB0F2536AC8A00AC4A91 /* Main.storyboard */,
-				1359EB122536AC9000AC4A91 /* Assets.xcassets */,
-				1359EB142536AC9000AC4A91 /* LaunchScreen.storyboard */,
 				1359EB172536AC9000AC4A91 /* Info.plist */,
-				1359EB272536C7A700AC4A91 /* FuncTableViewCell.swift */,
-				1359EB282536C7A800AC4A91 /* FuncTableViewCell.xib */,
 			);
 			path = NetInfo;
 			sourceTree = "<group>";
@@ -125,6 +138,9 @@
 		1359EB222536B29700AC4A91 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				1359EB122536AC9000AC4A91 /* Assets.xcassets */,
+				1359EB0F2536AC8A00AC4A91 /* Main.storyboard */,
+				1359EB142536AC9000AC4A91 /* LaunchScreen.storyboard */,
 				1359EB232536B2C000AC4A91 /* Data.swift */,
 			);
 			path = Resource;
@@ -267,7 +283,7 @@
 				1359EB242536B2C000AC4A91 /* Data.swift in Sources */,
 				1359EB0A2536AC8A00AC4A91 /* AppDelegate.swift in Sources */,
 				1359EB0C2536AC8A00AC4A91 /* SceneDelegate.swift in Sources */,
-				1318583F253872430060F691 /* ExtensionFIle.swift in Sources */,
+				1318583F253872430060F691 /* ExtensionFile.swift in Sources */,
 				13185808253806630060F691 /* PortScanerViewController.swift in Sources */,
 				1359EB202536B24300AC4A91 /* Function.swift in Sources */,
 				1359EB2E2536DD7400AC4A91 /* NetworkUtility.swift in Sources */,
