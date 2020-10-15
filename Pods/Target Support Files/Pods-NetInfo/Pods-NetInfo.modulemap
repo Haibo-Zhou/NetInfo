@@ -1,0 +1,6 @@
+framework module Pods_NetInfo {
+  umbrella header "Pods-NetInfo-umbrella.h"
+
+  export *
+  module * { export * }
+}
