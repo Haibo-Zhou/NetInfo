@@ -52,7 +52,9 @@ class ViewController: UITableViewController {
                 navigationController?.pushViewController(vc, animated: true)
             }
         case 1:
-            print("TBD")
+            if let vc = storyboard?.instantiateViewController(identifier: "PortScaner") as? PortScanerViewController {
+                navigationController?.pushViewController(vc, animated: true)
+            }
         default:
             print("TBD")
         } 

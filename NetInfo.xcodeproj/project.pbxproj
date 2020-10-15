@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		13185808253806630060F691 /* PortScanerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13185807253806630060F691 /* PortScanerViewController.swift */; };
 		1359EB0A2536AC8A00AC4A91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1359EB092536AC8A00AC4A91 /* AppDelegate.swift */; };
 		1359EB0C2536AC8A00AC4A91 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1359EB0B2536AC8A00AC4A91 /* SceneDelegate.swift */; };
 		1359EB0E2536AC8A00AC4A91 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1359EB0D2536AC8A00AC4A91 /* ViewController.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		13185807253806630060F691 /* PortScanerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortScanerViewController.swift; sourceTree = "<group>"; };
 		1359EB062536AC8A00AC4A91 /* NetInfo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetInfo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1359EB092536AC8A00AC4A91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1359EB0B2536AC8A00AC4A91 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				1359EB0B2536AC8A00AC4A91 /* SceneDelegate.swift */,
 				1359EB312536E13D00AC4A91 /* GatewayViewController.swift */,
 				1359EB0D2536AC8A00AC4A91 /* ViewController.swift */,
+				13185807253806630060F691 /* PortScanerViewController.swift */,
 				1359EB0F2536AC8A00AC4A91 /* Main.storyboard */,
 				1359EB122536AC9000AC4A91 /* Assets.xcassets */,
 				1359EB142536AC9000AC4A91 /* LaunchScreen.storyboard */,
@@ -185,6 +188,7 @@
 				1359EB242536B2C000AC4A91 /* Data.swift in Sources */,
 				1359EB0A2536AC8A00AC4A91 /* AppDelegate.swift in Sources */,
 				1359EB0C2536AC8A00AC4A91 /* SceneDelegate.swift in Sources */,
+				13185808253806630060F691 /* PortScanerViewController.swift in Sources */,
 				1359EB202536B24300AC4A91 /* Function.swift in Sources */,
 				1359EB2E2536DD7400AC4A91 /* NetworkUtility.swift in Sources */,
 				1359EB322536E13E00AC4A91 /* GatewayViewController.swift in Sources */,
