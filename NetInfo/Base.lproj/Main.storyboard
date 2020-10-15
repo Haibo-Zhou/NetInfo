@@ -152,6 +152,16 @@
                                 <rect key="frame" x="20" y="291" width="354" height="571"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="EmD-tP-m9g">
+                                        <rect key="frame" x="0.0" y="28" width="354" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EmD-tP-m9g" id="HaU-Tv-qMs">
+                                            <rect key="frame" x="0.0" y="0.0" width="354" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="lEO-TW-ltu">
                                 <rect key="frame" x="321" y="252" width="32" height="26"/>
@@ -161,6 +171,12 @@
                         <viewLayoutGuide key="safeArea" id="2A0-CO-r3W"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <outlet property="serverAddress" destination="RHk-Te-vMY" id="pxn-mL-C7x"/>
+                        <outlet property="startPort" destination="KSr-Cc-b7G" id="yFu-lX-GXD"/>
+                        <outlet property="stopPort" destination="Ebj-BS-zOz" id="L26-J6-asy"/>
+                        <outlet property="table" destination="Top-TX-UvL" id="L8r-vL-POC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fCE-GT-qc0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
