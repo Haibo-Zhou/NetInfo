@@ -68,17 +68,14 @@ class NetworkUtility {
         for segment in segmentPorts {
             group.enter()
             DispatchQueue.global().async {
-                
                 for port in segment {
                     let client = TCPClient(address: address, port: Int32(port))
                     switch client.connect(timeout: 2) {
                         case .success:
                             openPorts.append(port)
-                        
                         case .failure(_):
                             print("port \(port) closed")
                     }
-                    
                     client.close()
                 }
                 group.leave()
@@ -92,20 +89,11 @@ class NetworkUtility {
     
     // Scans ports from an address and a range given by the user
     func scanPorts(address : String, start : Int, stop : Int) -> [Int] {
-        
-//        addressGlobal = address
         let openPorts = QueueDispatchPort(
             address: address, minPort: start, maxPort: stop, segmentsQueues:
             getSegmentsQueues(min:max:maxPerSegment:))
         
         return openPorts
-        
-//        if !openPorts.isEmpty {
-//            performSegue(withIdentifier: "showTable", sender: nil)
-//            UserDefaults.standard.set(openPorts, forKey: "ActivePorts")
-//        } else {
-//            displayAlert(title: "💩 Nada de nada", msg: "No se encontraron puertos disponibles.")
-//        }
     }
     
     

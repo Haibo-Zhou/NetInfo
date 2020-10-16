@@ -29,6 +29,10 @@ class PortScanerViewController: UIViewController, UITableViewDelegate, UITableVi
         
         serverImageView.image = UIImage(systemName: "externaldrive.badge.checkmark")
         portRangeImageView.image = UIImage(systemName: "externaldrive.badge.plus")
+        scanerIndicator.style = .large
+        scanerIndicator.color = .red
+        scanerIndicator.hidesWhenStopped = true
+        scanerIndicator.stopAnimating()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -37,15 +41,16 @@ class PortScanerViewController: UIViewController, UITableViewDelegate, UITableVi
     
     @objc func startScan() {
         scanerIndicator.startAnimating()
+//        self.view.isUserInteractionEnabled = false
         
         if let address = serverAddress.text, !address.isEmpty {
             if let start = Int(startPort.text!) {
                 if let stop = Int(stopPort.text!) {
                     if start < stop {
-                        openPorts = netUtility.scanPorts(address: address, start: start, stop: stop)
-                        print("Open Open: \(openPorts)")
+                        self.openPorts = self.netUtility.scanPorts(address: address, start: start, stop: stop)
+                        print("Open Open: \(self.openPorts)")
+                        
                         if !openPorts.isEmpty {
-                            scanerIndicator.stopAnimating()
                             table.reloadData()
                         } else {
                             showErrorMessage(errorTitle: "Not at all", errorMessage: "No open ports were found")
@@ -61,6 +66,10 @@ class PortScanerViewController: UIViewController, UITableViewDelegate, UITableVi
             }
         } else {
             showErrorMessage(errorTitle: "Empty fields", errorMessage: "Please fill all the necessary data")
+        }
+        
+        DispatchQueue.main.async {
+            self.scanerIndicator.stopAnimating()
         }
     }
     
