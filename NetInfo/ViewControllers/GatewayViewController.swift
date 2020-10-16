@@ -8,6 +8,8 @@
 import UIKit
 
 class GatewayViewController: UIViewController {
+    @IBOutlet weak var gatewayLabel: UILabel!
+    @IBOutlet weak var gwIPLabel: UILabel!
     
     var pageTitle = ""
 //    var gatewayIPAddress = "N/A"
@@ -18,6 +20,12 @@ class GatewayViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = pageTitle
+        
+        gatewayLabel.adjustsFontSizeToFitWidth = true
+        gatewayLabel.sizeToFit()
+        
+        gwIPLabel.adjustsFontSizeToFitWidth = true
+        gwIPLabel.sizeToFit()
         
         // Receive remoteHost from callback parameter(aka. gateway ip address)
         NetworkUtility().getGatewayInfo { (remoteHost) in
