@@ -10,22 +10,18 @@ import UIKit
 class GatewayViewController: UIViewController {
     @IBOutlet weak var gatewayLabel: UILabel!
     @IBOutlet weak var gwIPLabel: UILabel!
+    @IBOutlet var gwIPAddress: UILabel!
     
     var pageTitle = ""
-//    var gatewayIPAddress = "N/A"
-//    let netService = NetworkUtility()
-    
-    @IBOutlet var gwIPAddress: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = pageTitle
         view.backgroundColor = .systemGray5
         
-        
         // Receive remoteHost from callback parameter(aka. gateway ip address)
         NetworkUtility().getGatewayInfo { (remoteHost) in
-            print("remote: \(remoteHost)")
+            print("remoteHost: \(remoteHost)")
             DispatchQueue.main.async {
                 self.gwIPAddress.text = remoteHost
             }
@@ -35,16 +31,5 @@ class GatewayViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         gwIPAddress.text = "N/A"
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

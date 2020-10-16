@@ -279,12 +279,12 @@
                                     </textField>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="217" translatesAutoresizingMaskIntoConstraints="NO" id="n3a-8h-rSS">
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="n3a-8h-rSS">
                                 <rect key="frame" x="20" y="229.5" width="374" height="20.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Open Ports:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2zw-NQ-x3B">
-                                        <rect key="frame" x="0.0" y="0.0" width="137" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="329" height="20.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -318,8 +318,8 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Server" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pQb-V9-V3L">
-                                <rect key="frame" x="20" y="59" width="49.5" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="20" y="59" width="52.5" height="20.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -329,7 +329,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Start" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KSr-Cc-b7G">
                                         <rect key="frame" x="0.0" y="0.0" width="60" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="to" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Yh-3U-dn8">
                                         <rect key="frame" x="70" y="7" width="15.5" height="20.5"/>
@@ -340,7 +340,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Stop" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ebj-BS-zOz">
                                         <rect key="frame" x="95.5" y="0.0" width="58.5" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
                             </stackView>
@@ -370,10 +370,12 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="openPortLabel" destination="2zw-NQ-x3B" id="unX-HW-594"/>
                         <outlet property="portRangeImageView" destination="fPN-Jf-3XS" id="puR-X3-obE"/>
                         <outlet property="scanerIndicator" destination="lEO-TW-ltu" id="cBz-pz-ymT"/>
                         <outlet property="serverAddress" destination="RHk-Te-vMY" id="pxn-mL-C7x"/>
                         <outlet property="serverImageView" destination="uaa-Lh-i0I" id="HwA-Nx-zLp"/>
+                        <outlet property="serverLabel" destination="pQb-V9-V3L" id="OF5-SJ-4bl"/>
                         <outlet property="startPort" destination="KSr-Cc-b7G" id="yFu-lX-GXD"/>
                         <outlet property="stopPort" destination="Ebj-BS-zOz" id="L26-J6-asy"/>
                         <outlet property="table" destination="Top-TX-UvL" id="L8r-vL-POC"/>

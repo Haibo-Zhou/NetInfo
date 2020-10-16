@@ -14,6 +14,8 @@ class PortScanerViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var serverImageView: UIImageView!
     @IBOutlet weak var portRangeImageView: UIImageView!
     @IBOutlet weak var scanerIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var serverLabel: UILabel!
+    @IBOutlet weak var openPortLabel: UILabel!
     
     @IBOutlet var table: UITableView!
     
@@ -32,19 +34,41 @@ class PortScanerViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     private func configure() {
-        title = pageTitle
+        // Image
         serverImageView.image = UIImage(systemName: "externaldrive.badge.checkmark")
         portRangeImageView.image = UIImage(systemName: "externaldrive.badge.plus")
-        scanerIndicator.style = .large
-        scanerIndicator.color = .red
+        
+        // Activity indicator
+        scanerIndicator.color = .systemYellow
         scanerIndicator.hidesWhenStopped = true
         scanerIndicator.stopAnimating()
         view.backgroundColor = .systemGray5
+        
+        // TableView
+        title = pageTitle
         table.backgroundColor = .lightGreen
         table.separatorColor = .systemGray3
+        
+        // Text font & color
         serverAddress.backgroundColor = .systemGray6
+        serverAddress.keyboardType = .numbersAndPunctuation
         startPort.backgroundColor = .systemGray6
+        startPort.keyboardType = .numberPad
         stopPort.backgroundColor = .systemGray6
+        stopPort.keyboardType = .numberPad
+        
+        serverLabel.backgroundColor = .clear
+        serverLabel.numberOfLines = 1
+        serverLabel.font = UIFont.preferredFont(forTextStyle: .headline)
+        serverLabel.adjustsFontForContentSizeCategory = true
+        serverLabel.textColor = .textColor
+        
+        openPortLabel.backgroundColor = .clear
+        openPortLabel.numberOfLines = 1
+        openPortLabel.font = UIFont.preferredFont(forTextStyle: .headline)
+        openPortLabel.adjustsFontForContentSizeCategory = true
+        openPortLabel.textColor = .textColor
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -52,37 +76,47 @@ class PortScanerViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     @objc func startScan() {
-        view.endEditing(true)
         scanerIndicator.startAnimating()
+        openPorts.removeAll()
+        table.reloadData()
+        view.endEditing(true)
 //        self.view.isUserInteractionEnabled = false
         
         if let address = serverAddress.text, !address.isEmpty {
             if let start = Int(startPort.text!) {
                 if let stop = Int(stopPort.text!) {
                     if start < stop {
-                        self.openPorts = self.netUtility.scanPorts(address: address, start: start, stop: stop)
-                        print("Open Open: \(self.openPorts)")
-                        
-                        if !openPorts.isEmpty {
-                            table.reloadData()
-                        } else {
-                            showErrorMessage(errorTitle: "Not at all", errorMessage: "No open ports were found")
+                        netUtility.scanPorts(address: address, start: start, stop: stop) { [self] (availablePorts) in
+                            openPorts = availablePorts
+                            print("Opened ports: \(self.openPorts)")
+                            if !openPorts.isEmpty {
+                                DispatchQueue.main.async { [weak self] in
+                                    table.reloadData()
+                                    self?.scanerIndicator.stopAnimating()
+                                }
+                            } else {
+                                DispatchQueue.main.async { [weak self] in
+                                    table.reloadData()
+                                    self?.scanerIndicator.stopAnimating()
+                                }
+                                showErrorMessage(errorTitle: "Not at all", errorMessage: "No open ports were found")
+                            }
                         }
                     } else {
+                        scanerIndicator.stopAnimating()
                         showErrorMessage(errorTitle: "Range error", errorMessage: "Start port should be smaller than stop port")
                     }
                 } else {
+                    scanerIndicator.stopAnimating()
                     showErrorMessage(errorTitle: "Empty fields", errorMessage: "Please fill all the necessary data")
                 }
             } else {
+                scanerIndicator.stopAnimating()
                 showErrorMessage(errorTitle: "Empty fields", errorMessage: "Please fill all the necessary data")
             }
         } else {
+            scanerIndicator.stopAnimating()
             showErrorMessage(errorTitle: "Empty fields", errorMessage: "Please fill all the necessary data")
-        }
-        
-        DispatchQueue.main.async {
-            self.scanerIndicator.stopAnimating()
         }
     }
     
@@ -97,4 +131,6 @@ class PortScanerViewController: UIViewController, UITableViewDelegate, UITableVi
         
         return cell
     }
+    
+
 }
