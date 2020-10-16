@@ -39,7 +39,7 @@ class PortScanerViewController: UIViewController, UITableViewDelegate, UITableVi
         portRangeImageView.image = UIImage(systemName: "externaldrive.badge.plus")
         
         // Activity indicator
-        scanerIndicator.color = .systemYellow
+        scanerIndicator.color = .textColor
         scanerIndicator.hidesWhenStopped = true
         scanerIndicator.stopAnimating()
         view.backgroundColor = .systemGray5
@@ -77,34 +77,42 @@ class PortScanerViewController: UIViewController, UITableViewDelegate, UITableVi
     
     @objc func startScan() {
         scanerIndicator.startAnimating()
+        // Remove table data source when restart scan
         openPorts.removeAll()
+        netUtility.openPorts.removeAll()
+//        print("RemovedPorts: \(openPorts)")
         table.reloadData()
+        
         view.endEditing(true)
 //        self.view.isUserInteractionEnabled = false
         
         if let address = serverAddress.text, !address.isEmpty {
-            if let start = Int(startPort.text!) {
-                if let stop = Int(stopPort.text!) {
-                    if start < stop {
-                        netUtility.scanPorts(address: address, start: start, stop: stop) { [self] (availablePorts) in
-                            openPorts = availablePorts
-                            print("Opened ports: \(self.openPorts)")
-                            if !openPorts.isEmpty {
-                                DispatchQueue.main.async { [weak self] in
-                                    table.reloadData()
-                                    self?.scanerIndicator.stopAnimating()
+            if validateIpAddress(ipToValidate: address) {
+                if let start = Int(startPort.text!) {
+                    if let stop = Int(stopPort.text!) {
+                        if start < stop {
+                            netUtility.scanPorts(address: address, start: start, stop: stop) { [self] (availablePorts) in
+                                openPorts = availablePorts
+                                print("Opened ports: \(self.openPorts)")
+                                if !openPorts.isEmpty {
+                                    DispatchQueue.main.async { [weak self] in
+                                        table.reloadData()
+                                        self?.scanerIndicator.stopAnimating()
+                                    }
+                                } else {
+                                    DispatchQueue.main.async { [weak self] in
+                                        self?.scanerIndicator.stopAnimating()
+                                        showErrorMessage(errorTitle: "Not at all", errorMessage: "No open ports were found")
+                                    }
                                 }
-                            } else {
-                                DispatchQueue.main.async { [weak self] in
-                                    table.reloadData()
-                                    self?.scanerIndicator.stopAnimating()
-                                }
-                                showErrorMessage(errorTitle: "Not at all", errorMessage: "No open ports were found")
                             }
+                        } else {
+                            scanerIndicator.stopAnimating()
+                            showErrorMessage(errorTitle: "Range error", errorMessage: "Start port should be smaller than stop port")
                         }
                     } else {
                         scanerIndicator.stopAnimating()
-                        showErrorMessage(errorTitle: "Range error", errorMessage: "Start port should be smaller than stop port")
+                        showErrorMessage(errorTitle: "Empty fields", errorMessage: "Please fill all the necessary data")
                     }
                 } else {
                     scanerIndicator.stopAnimating()
@@ -112,7 +120,7 @@ class PortScanerViewController: UIViewController, UITableViewDelegate, UITableVi
                 }
             } else {
                 scanerIndicator.stopAnimating()
-                showErrorMessage(errorTitle: "Empty fields", errorMessage: "Please fill all the necessary data")
+                showErrorMessage(errorTitle: "Invalid IP address", errorMessage: "Please enter valid IP address")
             }
         } else {
             scanerIndicator.stopAnimating()

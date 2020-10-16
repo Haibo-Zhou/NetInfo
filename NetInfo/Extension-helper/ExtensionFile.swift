@@ -22,3 +22,20 @@ extension UIColor {
     static let textColor = UIColor(named: "textColor")
 //    static let lightBlue = Color("lightBlue")
 }
+
+func validateIpAddress(ipToValidate: String) -> Bool {
+    
+    var sin = sockaddr_in()
+    var sin6 = sockaddr_in6()
+
+    if ipToValidate.withCString({ cstring in inet_pton(AF_INET6, cstring, &sin6.sin6_addr) }) == 1 {
+        // IPv6 peer.
+        return true
+    }
+    else if ipToValidate.withCString({ cstring in inet_pton(AF_INET, cstring, &sin.sin_addr) }) == 1 {
+        // IPv4 peer.
+        return true
+    }
+
+    return false;
+}
