@@ -20,12 +20,8 @@ class GatewayViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = pageTitle
+        view.backgroundColor = .systemGray5
         
-        gatewayLabel.adjustsFontSizeToFitWidth = true
-        gatewayLabel.sizeToFit()
-        
-        gwIPLabel.adjustsFontSizeToFitWidth = true
-        gwIPLabel.sizeToFit()
         
         // Receive remoteHost from callback parameter(aka. gateway ip address)
         NetworkUtility().getGatewayInfo { (remoteHost) in

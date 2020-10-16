@@ -17,6 +17,7 @@ class ViewController: UITableViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
+        tableView.backgroundColor = .systemGray5
         
         title = "Net Info"
         
@@ -33,6 +34,7 @@ class ViewController: UITableViewController {
         let function = functions[indexPath.row]
         customCell.funcImageView.image = function.funcImage
         customCell.funcLabel.text = function.funcName
+        customCell.backgroundColor = .clear
         
         // Set cell's accessory type
         customCell.accessoryType = .disclosureIndicator
@@ -53,6 +55,7 @@ class ViewController: UITableViewController {
             }
         case 1:
             if let vc = storyboard?.instantiateViewController(identifier: "PortScaner") as? PortScanerViewController {
+                vc.pageTitle = functions[indexPath.row].funcName
                 navigationController?.pushViewController(vc, animated: true)
             }
         default:

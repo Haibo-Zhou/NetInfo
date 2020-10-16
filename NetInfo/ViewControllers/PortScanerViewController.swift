@@ -19,6 +19,7 @@ class PortScanerViewController: UIViewController, UITableViewDelegate, UITableVi
     
     var openPorts = [Int]()
     let netUtility = NetworkUtility()
+    var pageTitle = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,13 +27,24 @@ class PortScanerViewController: UIViewController, UITableViewDelegate, UITableVi
         table.dataSource = self
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Start", style: .plain, target: self, action: #selector(startScan))
+        configure()
         
+    }
+    
+    private func configure() {
+        title = pageTitle
         serverImageView.image = UIImage(systemName: "externaldrive.badge.checkmark")
         portRangeImageView.image = UIImage(systemName: "externaldrive.badge.plus")
         scanerIndicator.style = .large
         scanerIndicator.color = .red
         scanerIndicator.hidesWhenStopped = true
         scanerIndicator.stopAnimating()
+        view.backgroundColor = .systemGray5
+        table.backgroundColor = .lightGreen
+        table.separatorColor = .systemGray3
+        serverAddress.backgroundColor = .systemGray6
+        startPort.backgroundColor = .systemGray6
+        stopPort.backgroundColor = .systemGray6
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -40,6 +52,7 @@ class PortScanerViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     @objc func startScan() {
+        view.endEditing(true)
         scanerIndicator.startAnimating()
 //        self.view.isUserInteractionEnabled = false
         
@@ -80,6 +93,7 @@ class PortScanerViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = String(openPorts[indexPath.row])
+        cell.backgroundColor = .clear
         
         return cell
     }

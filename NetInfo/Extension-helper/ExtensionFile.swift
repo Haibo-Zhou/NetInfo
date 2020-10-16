@@ -15,3 +15,10 @@ extension UIViewController {
         present(alert, animated: true)
     }
 }
+
+
+extension UIColor {
+    static let lightGreen = UIColor(named: "lightGreen")
+    static let textColor = UIColor(named: "textColor")
+//    static let lightBlue = Color("lightBlue")
+}
