@@ -1,5 +1,5 @@
 # Overview
-NetInfo is an Nework tools could retrieve network parameters, also it is a interview takeHome test I received recently. Well, it is an iOS app and is written in Swift5.
+NetInfo is a network tool, which could retrieve network parameters, also it is an interview takeHome test I received recently. Well, it is an iOS app and  written in Swift5.
 
 
 #### Requirements: 
