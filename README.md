@@ -32,3 +32,4 @@ macOS 10.14+
 
 #### Note:
 - Only `Gateway Info` & `Port Scan` is functional now. Other functions in the tableView are just placeholder.
+- Please use real device to try this app, since network utility app will not work property in iOS simulator most of time.
