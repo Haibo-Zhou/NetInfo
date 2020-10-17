@@ -22,13 +22,13 @@ macOS 10.14+
 - All images/icons are using Apple's built-in SF Symbol 2.0.
 
 #### Work flow:
-![Alt Text](https://img9.doubanio.com/view/photo/l/JcwF4BO266PNqkJwrjSSng/46200905/x2623128486.jpg)
+![App work flow chart](https://img9.doubanio.com/view/photo/l/JcwF4BO266PNqkJwrjSSng/46200905/x2623128486.jpg)
 
 
 #### Screenshots:
-![Alt Text](https://img9.doubanio.com/view/photo/l/uBK3sndLDGO4hBgIpNRxYA/46200905/x2623106626.jpg)
-![Alt Text](https://img9.doubanio.com/view/photo/l/ahQhP3-ucVdBQ_xDo2uODQ/46200905/x2623106625.jpg)
-![Alt Text](https://img9.doubanio.com/view/photo/l/kzvdx8VuwxbR9-J7atDgjA/46200905/x2623106624.jpg)
+![First screen](https://img9.doubanio.com/view/photo/l/uBK3sndLDGO4hBgIpNRxYA/46200905/x2623106626.jpg)
+![NetworkInfo VC](https://img9.doubanio.com/view/photo/l/ahQhP3-ucVdBQ_xDo2uODQ/46200905/x2623106625.jpg)
+![PortScaner VC](https://img9.doubanio.com/view/photo/l/kzvdx8VuwxbR9-J7atDgjA/46200905/x2623106624.jpg)
 
 #### Note:
 - Only `Gateway Info` & `Port Scan` is functional now. Other functions in the tableView are just placeholder.
