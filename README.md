@@ -1,9 +1,10 @@
 # Overview
-NetInfo is an interview takeHome test I received recently, it is an iOS app and is written in Swift5.
+NetInfo is an Nework tools could retrieve network parameters, also it is a interview takeHome test I received recently. Well, it is an iOS app and is written in Swift5.
 
 
 #### Requirements: 
 iOS 12+, as Apple's `Network` framework is a newer one than `Reachability`, which requires iOS >= 12.
+macOS 10.14+
 
 #### Libary & Framework used:
 - UIKit
@@ -19,6 +20,9 @@ iOS 12+, as Apple's `Network` framework is a newer one than `Reachability`, whic
 - Used MVC as design pattern.
 - Supported on Dark Mode.
 - All images/icons are using Apple's built-in SF Symbol 2.0.
+
+#### Work flow:
+![Alt Text](https://img9.doubanio.com/view/photo/l/JcwF4BO266PNqkJwrjSSng/46200905/x2623128486.jpg)
 
 
 #### Screenshots:
