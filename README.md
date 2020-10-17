@@ -3,8 +3,8 @@ NetInfo is a network tool, which could retrieve network parameters, also it is a
 
 
 #### Requirements: 
-iOS 12+, as Apple's `Network` framework is a newer one than `Reachability`, which requires iOS >= 12.
-macOS 10.14+
+- iOS 12+
+- macOS 10.14+
 
 #### Libary & Framework used:
 - UIKit
