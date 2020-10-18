@@ -10,7 +10,6 @@ import Network
 import SwiftSocket
 
 class NetworkUtility {
-    var openPorts = [Int]()
     
     // MARK: - Gateway Info
     func getGatewayInfo(completionHandler: @escaping (String) -> ()) {
@@ -35,20 +34,21 @@ class NetworkUtility {
     
     // Scans ports from an address and a range given by the user
     func scanPorts(address : String, start : Int, stop : Int, completion: @escaping ([Int]) -> ()) {
+        var openPorts = [Int]()
         
         DispatchQueue.global(qos: .default).async {
             for port in start...stop {
                 let client = TCPClient(address: address, port: Int32(port))
                 switch client.connect(timeout: 2) {
                     case .success:
-                        self.openPorts.append(port)
+                        openPorts.append(port)
 //                        print("HH: port: \(self.openPorts)")
                     case .failure(_):
                         print("port \(port) closed")
                 }
                 client.close()
             }
-            completion(self.openPorts)
+            completion(openPorts)
         }
     }
 }

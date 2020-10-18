@@ -77,10 +77,8 @@ class PortScanerViewController: UIViewController, UITableViewDelegate, UITableVi
     
     @objc func startScan() {
         scanerIndicator.startAnimating()
-        // Remove table data source when restart scan
+        // Remove table data source and reload table row when re-start scan ports
         openPorts.removeAll()
-        netUtility.openPorts.removeAll()
-//        print("RemovedPorts: \(openPorts)")
         table.reloadData()
         
         view.endEditing(true)
